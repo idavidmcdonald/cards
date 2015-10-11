@@ -20,6 +20,7 @@ class Card {
 
 	/**
 	 * Validate and set rank and suit
+	 * @throws InvalidArgumentException Thrown on invalid rank or suit
 	 * @param int $rank Card rank between 1-13 representing Ace-King
 	 * @param int $suit Card suit between 1-4 representing clubs, diamonds, hearts and spades respectively
 	 */

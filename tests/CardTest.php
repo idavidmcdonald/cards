@@ -5,14 +5,14 @@ use Cards;
 class CardTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @dataProvider providerTestInvalidCardRankThrowsException
+	 * @dataProvider providerTestInvalidCardRankThrowsInvalidArgumentException
 	 */
-	public function testInvalidCardRankThrowsException($rank){
+	public function testInvalidCardRankThrowsInvalidArgumentException($rank){
 		$this->setExpectedException('Cards\Exceptions\InvalidArgumentException');
 		$card = new Cards\Card($rank, 1);
 	}
 
-	public function providerTestInvalidCardRankThrowsException(){
+	public function providerTestInvalidCardRankThrowsInvalidArgumentException(){
 		return array(
 			array(0), 
 			array(14),
@@ -24,14 +24,14 @@ class CardTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @dataProvider providerTestInvalidCardSuitThrowsException
+	 * @dataProvider providerTestInvalidCardSuitThrowsInvalidArgumentException
 	 */
-	public function testInvalidCardSuitThrowsException($suit){
+	public function testInvalidCardSuitThrowsInvalidArgumentException($suit){
 		$this->setExpectedException('Cards\Exceptions\InvalidArgumentException');
 		$card = new Cards\Card(1, $suit);
 	}
 
-	public function providerTestInvalidCardSuitThrowsException(){
+	public function providerTestInvalidCardSuitThrowsInvalidArgumentException(){
 		return array(
 			array(0), 
 			array(5),
