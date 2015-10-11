@@ -21,6 +21,33 @@ class Deck {
 				$this->cards[] = new Card($j, $i);
 			}
 		}
+
+		$this->shuffle();
+	}
+
+	/**
+	 * Shuffle $this->cards using Fisher-Yates shuffle
+	 *
+	 * Starting with the last card as the current card, choose a random card from
+	 * the other cards and swap it with the current card. Then with the penultimate
+	 * card as the current card, pick a random card from the cards before it and swap it 
+	 * with the current card. Continue process until the chosen card has no cards before it. 
+	 * 
+	 * @link https://en.wikipedia.org/wiki/Fisher–Yates_shuffle
+	 */
+	private function shuffle(){
+		$numCardsToShuffle = count($this->cards);
+		
+		// While there remains cards to shuffle
+		while ($numCardsToShuffle) {
+			// Pick a random card not yet shuffled
+			$ranPos = rand(0, $numCardsToShuffle--);
+
+			// Swap it with the current card
+			$currentCard = $this->cards[$numCardsToShuffle];
+			$this->cards[$numCardsToShuffle] = $this->cards[$ranPos];
+			$this->cards[$ranPos] = $currentCard;
+		}
 	}
 
 	/**
