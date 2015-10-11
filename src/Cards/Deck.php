@@ -40,8 +40,10 @@ class Deck {
 		
 		// While there remains cards to shuffle
 		while ($numCardsToShuffle) {
+			$numCardsToShuffle--;
+			
 			// Pick a random card not yet shuffled
-			$ranPos = rand(0, $numCardsToShuffle--);
+			$ranPos = rand(0, $numCardsToShuffle);
 
 			// Swap it with the current card
 			$currentCard = $this->cards[$numCardsToShuffle];
