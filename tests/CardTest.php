@@ -41,4 +41,19 @@ class CardTest extends \PHPUnit_Framework_TestCase
 			array(null)
 		);
 	}
+
+	public function testGetRankAsStringReturnsNonEmptyString(){
+		$card = new Cards\Card(1, 1);
+		$rank = $card->getRankAsString();
+		$this->assertNotEmpty($rank);
+		$this->assertInternalType('string', $rank);
+	}
+
+	public function testGetSuitAsStringReturnsNonEmptyString(){
+		$card = new Cards\Card(1, 1);
+		$suit = $card->getSuitAsString();
+		$this->assertNotEmpty($suit);
+		$this->assertInternalType('string', $suit);
+
+	}
 }
